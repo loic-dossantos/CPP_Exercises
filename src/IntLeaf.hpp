@@ -1,22 +1,22 @@
 #pragma once
 
-#include <string>
-
 #include "Leaf.hpp"
 #include "NodeKind.hpp"
 
-class IntLeaf : public Leaf {
-    public:
-        IntLeaf(int value) : Leaf(NodeKind::INT), _value{value} {}
+#include <memory>
+#include <string>
 
-        std::string print() const {
-            return std::to_string(_value);
-        }
+class IntLeaf : public Leaf
+{
+public:
+    IntLeaf(int value);
 
-        int data() const {
-            return _value;
-        }
+    std::string print() const;
 
-    private:
-        int _value {};
+    int data() const;
+
+    static std::unique_ptr<IntLeaf> make_ptr(int value);
+
+private:
+    int _value {};
 };

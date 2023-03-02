@@ -1,25 +1,27 @@
 #pragma once
 
-#include <memory>
-
 #include "InstanceCounter.hpp"
 #include "NodeKind.hpp"
 
-class Node : public InstanceCounter {
-    public:
-        Node() {}
+#include <memory>
 
-        Node(NodeKind kind) : _kind{kind} {}
+class Node : public InstanceCounter
+{
+public:
+    virtual ~Node() = default;
 
-        NodeKind kind() {
-            return _kind;
-        }
+    Node(NodeKind kind);
 
-        virtual std::string print() const = 0;
+    NodeKind kind();
 
+    virtual std::string print() const = 0;
 
-    private:
-        NodeKind _kind {};
+    virtual int height() const = 0;
+
+    virtual int node_count() const = 0;
+
+private:
+    NodeKind _kind {};
 };
 
-using NodePtr = std::make_unique<Node>();
+using NodePtr = std::unique_ptr<Node>;

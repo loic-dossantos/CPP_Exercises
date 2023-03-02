@@ -2,11 +2,14 @@
 
 #include "Node.hpp"
 
-class Leaf : public Node {
-    public:
-        Leaf() {}
+class Leaf : public Node
+{
+public:
+    Leaf(NodeKind kind);
 
-        Leaf(NodeKind kind) : Node(kind) {}
+    virtual int height();
 
-    private:
+    virtual int node_count();
+
+private:
 };

@@ -1,15 +1,31 @@
 #pragma once
 
+#include "Node.hpp"
+#include "NodeKind.hpp"
+
+#include <map>
+#include <memory>
 #include <string>
 
-#include "NodeKind.hpp"
-#include "Node.hpp"
+class ObjectNode : public Node
+{
+public:
+    ObjectNode();
 
-class ObjectNode : public Node {
-    public:
-        ObjectNode() : Node(NodeKind::OBJECT) {}
+    std::string print() const override;
 
-        std::string print() const override {return "{}";}
+    static std::unique_ptr<ObjectNode> make_ptr();
 
-    private:
+    int child_count() const;
+
+    void insert(std::string key, NodePtr value);
+
+    static std::unique_ptr<ObjectNode> make_ptr(std::map<std::string, NodePtr> map);
+
+    int height();
+
+    int node_count();
+
+private:
+    std::map<std::string, NodePtr> _map {};
 };

@@ -1,15 +1,29 @@
 #pragma once
 
-#include <string>
-
-#include "NodeKind.hpp"
 #include "Node.hpp"
+#include "NodeKind.hpp"
 
-class ArrayNode : public Node {
-    public:
-        ArrayNode() : Node(NodeKind::ARRAY) {}
+#include <memory>
+#include <string>
+#include <vector>
 
-        std::string print() const override {return "[]";}
+class ArrayNode : public Node
+{
+public:
+    ArrayNode();
 
-    private:
+    std::string print() const override;
+
+    static std::unique_ptr<ArrayNode> make_ptr();
+
+    int child_count() const;
+
+    void push_back(NodePtr elem);
+
+    int height();
+
+    int node_count();
+
+private:
+    std::vector<NodePtr> _array {};
 };
