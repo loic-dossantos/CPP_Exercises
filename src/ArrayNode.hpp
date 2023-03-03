@@ -20,9 +20,9 @@ public:
 
     void push_back(NodePtr elem);
 
-    int height();
+    // int height();
 
-    int node_count();
+    // int node_count();
 
 private:
     std::vector<NodePtr> _array {};

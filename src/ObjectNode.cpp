@@ -42,7 +42,7 @@ std::unique_ptr<ObjectNode> ObjectNode::make_ptr(std::map<std::string, NodePtr> 
     return result;
 }
 
-int ObjectNode::height()
+/*int ObjectNode::height()
 {
     int max = 0;
     for (auto it = _map.begin(); it != _map.end(); it++)
@@ -63,4 +63,4 @@ int ObjectNode::node_count()
         sum += it->second->node_count();
     }
     return sum + 1;
-}
+}*/

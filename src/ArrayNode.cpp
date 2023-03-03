@@ -34,7 +34,7 @@ void ArrayNode::push_back(NodePtr elem)
     _array.push_back(std::move(elem));
 }
 
-int ArrayNode::height()
+/*int ArrayNode::height()
 {
     int max = 0;
     for (auto it = _array.begin(); it != _array.end(); it++)
@@ -55,4 +55,4 @@ int ArrayNode::node_count()
         sum += it->get()->node_count();
     }
     return sum + 1;
-}
+}*/

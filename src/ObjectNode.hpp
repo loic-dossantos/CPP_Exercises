@@ -22,9 +22,9 @@ public:
 
     static std::unique_ptr<ObjectNode> make_ptr(std::map<std::string, NodePtr> map);
 
-    int height();
+    // int height();
 
-    int node_count();
+    // int node_count();
 
 private:
     std::map<std::string, NodePtr> _map {};
