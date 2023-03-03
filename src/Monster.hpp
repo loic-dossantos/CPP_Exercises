@@ -4,16 +4,7 @@
 
 #include <string>
 
-enum class Attribute
-{
-    Dark,
-    Divine,
-    Earth,
-    Fire,
-    Light,
-    Water,
-    Wind
-};
+enum class Attribute { Dark, Divine, Earth, Fire, Light, Water, Wind };
 
 std::string to_symbol(Attribute attribute) {
     switch (attribute) {
@@ -35,8 +26,7 @@ std::string to_symbol(Attribute attribute) {
     return "";
 }
 
-class Monster : public Card
-{
+class Monster : public Card {
 
 public:
     Monster(const std::string& id, const std::string& name, const Attribute& attribute,

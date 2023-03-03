@@ -23,19 +23,19 @@ public:
         : _id { id }
         , _type { type } {}
 
-    void set_name(const std::string& name) { _name = name; }
+    virtual void set_name(const std::string& name) { _name = name; }
 
-    void set_description(const std::string& description) { _description = description; }
+    virtual void set_description(const std::string& description) { _description = description; }
 
-    std::string get_id() const { return _id; }
+    virtual std::string get_id() const { return _id; }
 
-    CardType get_type() const { return _type; }
+    virtual CardType get_type() const { return _type; }
 
-    std::string get_name() const { return _name; }
+    virtual std::string get_name() const { return _name; }
 
     std::string get_description() const { return _description; }
 
-    std::string get_symbol() const { return _symbol; }
+    virtual std::string get_symbol() const { return _symbol; }
 
 protected:
     std::string _id {};
